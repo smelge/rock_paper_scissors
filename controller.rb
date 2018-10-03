@@ -6,14 +6,14 @@ require_relative('./models/logic.rb')
 also_reload('./models/*')
 
 get '/play/:player1/:player2' do
-  player1 = params[:player1]
-  player2 = params[:player2]
+  player1 = params[:player1].downcase
+  player2 = params[:player2].downcase
   @game = Logic.result(player1,player2)
   erb(:play)
 end
 
 get '/play/:player1' do
-  player1 = params[:player1]
+  player1 = params[:player1].downcase
   player2 = Logic.loner()
   @game = Logic.result(player1,player2)
   erb(:play)
