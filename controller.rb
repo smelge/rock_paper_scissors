@@ -12,6 +12,15 @@ get '/play/:player1/:player2' do
   erb(:play)
 end
 
+get '/play/:player1' do
+  player1 = params[:player1]
+  player2 = Logic.loner()
+  @game = Logic.result(player1,player2)
+  erb(:play)
+end
+
+
+
 get '/' do
   erb(:home)
 end
