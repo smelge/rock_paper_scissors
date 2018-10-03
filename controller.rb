@@ -19,8 +19,6 @@ get '/play/:player1' do
   erb(:play)
 end
 
-
-
 get '/' do
   erb(:home)
 end
